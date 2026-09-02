@@ -15,7 +15,10 @@
 
 ### 1. Completeness
 - `authentication_logs.csv` : **151 / 4992** lignes sans `user_id` (3.0 %).
-- `edr_alerts.csv` : **234 / 1929** lignes sans `analyst_decision` (12.1 %).
+- `edr_alerts.csv` : **234 / 1929** alertes sans `analyst_decision` (12.1 %).
+  D'après la documentation IT, cela signifie que ces alertes n'ont pas encore
+  été traitées par un analyste. Ce n'est donc pas nécessairement une erreur
+  de qualité, mais ces lignes ne disposent pas encore de label exploitable.
 - `assets.csv` : **14 / 200** assets sans owner (7 %) et **20 / 200** sans criticité (10 %).
 
 Décision : **ne pas inventer** les valeurs manquantes. Les lignes sont conservées et signalées par `quality_flags`.
@@ -36,7 +39,9 @@ Décision : normaliser les timestamps en `YYYY-MM-DD HH:MM:SS`, les sévérités
 - Authentification : **47** événements référencent 8 devices absents de `assets.csv`.
 - EDR : **33** alertes référencent 8 devices absents de `assets.csv`.
 - Les formats des identifiants (`Uxxxx`, `Dxxxx`, `AUTHxxxxxx`, `EDRxxxxxx`) sont globalement valides.
-
+Les référentiels `users.csv` et `assets.csv` n'étant pas garantis à jour,
+une référence inconnue ne signifie pas forcément que le log est incorrect.
+Le problème peut également venir d'un référentiel obsolète.
 Décision : conserver l'événement, conserver l'IP originale dans `src_ip_raw`, vider uniquement la valeur normalisée invalide et ajouter un flag.
 
 ### 4. Uniqueness

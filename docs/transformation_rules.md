@@ -11,10 +11,10 @@
 | IP invalide | Conserver l'originale, laisser `src_ip` normalisé vide, ajouter `INVALID_SRC_IP` | Ne pas effacer l'événement |
 | User manquant | Ne pas imputer ; ajouter `MISSING_USER_ID` | Pas de valeur fiable à inventer |
 | Référence inconnue | Conserver ; ajouter `UNKNOWN_USER_REF` ou `UNKNOWN_DEVICE_REF` | Peut révéler un décalage de référentiel ou une anomalie sécurité |
-| Décision EDR manquante | Conserver ; ajouter `MISSING_ANALYST_DECISION` | Peut simplement signifier que l'alerte n'est pas encore qualifiée |
+| Alerte EDR non traitée | Conserver ; ajouter `NOT_REVIEWED` | La documentation indique que `analyst_decision` n'est renseigné que lorsqu'un analyste a traité l'alerte |
 | Owner/criticité manquants | Ne pas imputer | Nécessite une validation métier |
 | Hostname dupliqué | Conserver les deux assets et ajouter `DUPLICATE_HOSTNAME` | Le `device_id` reste unique |
-| Consolidation | Aligner auth + EDR sur un schéma commun et enrichir avec users/assets quand possible | Préparer la modélisation |
+| Consolidation | Aligner auth + EDR sur un schéma commun et enrichir avec users/assets quand possible | Préparer un dataset exploitable pour la phase suivante |
 
 ## Principe général
 Aucune ligne présentant une anomalie métier n'est supprimée sans certitude. En cybersécurité, une anomalie de données peut aussi être un signal utile.
