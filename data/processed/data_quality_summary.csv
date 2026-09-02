@@ -1,5 +1,5 @@
 source,raw_rows,clean_rows,exact_duplicates_removed,rows_with_quality_flag,quality_flags_detail
 authentication_logs.csv,4992,4847,145,269,INVALID_SRC_IP:48 | MISSING_USER_ID:145 | UNKNOWN_DEVICE_REF:45 | UNKNOWN_USER_REF:37
-edr_alerts.csv,1929,1855,74,248,MISSING_ANALYST_DECISION:222 | UNKNOWN_DEVICE_REF:30
+edr_alerts.csv,1929,1855,74,248,NOT_REVIEWED:222 | UNKNOWN_DEVICE_REF:30
 assets.csv,200,200,0,38,DUPLICATE_HOSTNAME:6 | MISSING_CRITICALITY:20 | MISSING_OWNER:14
 users.csv,400,395,5,0,
