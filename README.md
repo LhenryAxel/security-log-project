@@ -1,4 +1,4 @@
-# Security Log Project — TP3
+# Security Log Project - TP3
 
 Projet de réception et qualification des données de sécurité.
 

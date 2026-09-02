@@ -1,4 +1,4 @@
-# TP 3 — Données transmises par les équipes IT
+# TP 3 - Données transmises par les équipes IT
 
 Vous trouverez dans ce dossier les données historiques que les équipes IT ont
 pu extraire à votre demande.
@@ -98,7 +98,7 @@ L'équipe IT vous transmet ces données avec les réserves suivantes :
 2. **Évaluer la qualité** des données selon les dimensions vues en cours
    (completeness, consistency, validity, uniqueness, accuracy, timeliness).
 3. **Nettoyer et normaliser** ce qui peut l'être.
-4. **Identifier ce qui n'est pas exploitable** — vous avez parfaitement le
+4. **Identifier ce qui n'est pas exploitable** - vous avez parfaitement le
    droit de conclure qu'une donnée ne peut pas être utilisée, à condition de
    le justifier.
 5. **Produire un dataset consolidé** exploitable pour la phase de modélisation,
@@ -109,7 +109,7 @@ L'équipe IT vous transmet ces données avec les réserves suivantes :
 ### Recommandation
 
 Documentez chaque décision de nettoyage. Une ligne supprimée sans
-justification est une information perdue — et en sécurité, l'anomalie que
+justification est une information perdue - et en sécurité, l'anomalie que
 vous effacez est parfois précisément celle qu'il fallait voir.
 
 ---

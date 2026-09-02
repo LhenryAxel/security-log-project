@@ -15,11 +15,11 @@ La modélisation ne doit pas démarrer avant validation du schéma commun et vé
 Un historique supplémentaire peut être demandé en parallèle sans bloquer le prototype de pipeline.
 
 ## Risques projet mis à jour
-- **Qualité des données : élevée** — plusieurs incohérences et valeurs manquantes.
-- **Couverture des labels : élevée** — certaines alertes EDR n'ont pas encore été traitées par un analyste et les classes disponibles sont déséquilibrées.
-- **Référentiels incomplets : moyen à élevé** — users/devices inconnus dans les logs.
-- **Historique trop court : moyen** — seulement 21 jours reçus.
-- **Risque de perte d'information : élevé si nettoyage agressif** — d'où l'utilisation de `quality_flags`.
+- **Qualité des données : élevée** - plusieurs incohérences et valeurs manquantes.
+- **Couverture des labels : élevée** - certaines alertes EDR n'ont pas encore été traitées par un analyste et les classes disponibles sont déséquilibrées.
+- **Référentiels incomplets : moyen à élevé** - users/devices inconnus dans les logs.
+- **Historique trop court : moyen** - seulement 21 jours reçus.
+- **Risque de perte d'information : élevé si nettoyage agressif** - d'où l'utilisation de `quality_flags`.
 
 ## Décision projet
 Le dataset est **exploitable pour poursuivre le prototype**, à condition de conserver les flags de qualité et de ne pas considérer le dataset actuel comme suffisant pour valider définitivement un modèle ML.
