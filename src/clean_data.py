@@ -244,7 +244,7 @@ def clean_edr(rows, user_ids, device_ids):
         if device_id and device_id not in device_ids:
             flags.append("UNKNOWN_DEVICE_REF")
 
-# Une décision vide signifie simplement que l'alerte n'a pas encore été traitée
+        # Une décision vide signifie simplement que l'alerte n'a pas encore été traitée
         if not row["analyst_decision"].strip():
             flags.append("NOT_REVIEWED")
         new_row = dict(row)
@@ -509,10 +509,47 @@ def main():
         summary
     )
 
-    print("Nettoyage terminé")
+    print("\n" + "=" * 90)
+    print("RÉSUMÉ DU NETTOYAGE")
+    print("=" * 90)
+
+    print(
+        f"{'SOURCE':<28}"
+        f"{'BRUT':>10}"
+        f"{'NETTOYÉ':>12}"
+        f"{'DOUBLONS':>12}"
+        f"{'ANOMALIES':>12}"
+    )
+
+    print("-" * 90)
 
     for row in summary:
-        print(row)
+        print(
+            f"{row['source']:<28}"
+            f"{row['raw_rows']:>10}"
+            f"{row['clean_rows']:>12}"
+            f"{row['exact_duplicates_removed']:>12}"
+            f"{row['rows_with_quality_flag']:>12}"
+        )
+
+    print("\n" + "=" * 90)
+    print("DÉTAIL DES ANOMALIES")
+    print("=" * 90)
+
+    for row in summary:
+        print(f"\n{row['source']}")
+
+        details = row["quality_flags_detail"]
+
+        if not details:
+            print("  Aucune anomalie détectée")
+            continue
+
+        for anomaly in details.split(" | "):
+            name, count = anomaly.split(":")
+            print(f"  - {name:<25} : {count}")
+
+    print("\nNettoyage terminé avec succès.\n")
 
 
 if __name__ == "__main__":
