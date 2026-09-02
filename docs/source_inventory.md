@@ -1,18 +1,25 @@
 # Inventaire et diagnostic des sources
 
-> Limite documentaire : le sujet annonce un fichier `README_ETUDIANTS.md`, mais ce fichier n'a pas été fourni ici.
-> Les propriétaires exacts et la fréquence officielle de mise à jour restent donc **à confirmer**.
+Les données ont été fournies par l'équipe IT telles qu'elles ont été extraites.
+Aucun contrôle qualité préalable n'a été réalisé et les référentiels utilisateurs
+et actifs ne sont pas garantis à jour.
 
-| Source | Propriétaire | Contenu | Format | Volume reçu | Fréquence probable* | Diagnostic rapide |
+| Source | Propriétaire | Contenu | Format | Volume reçu | Fréquence | Diagnostic rapide |
 |---|---|---|---|---:|---|---|
-| `authentication_logs.csv` | À confirmer (IT / IAM probable) | Authentifications AD, VPN, RDP, MFA, etc. | CSV | 4992 lignes | Événementielle / continue | Plusieurs formats de dates, casse incohérente, doublons, IP invalides, références manquantes |
-| `edr_alerts.csv` | À confirmer (équipe sécurité / IT probable) | Alertes EDR | CSV | 1929 lignes | Événementielle / continue | Doublons, casse de sévérité, décisions analyste manquantes, références actifs inconnues |
-| `assets.csv` | À confirmer (IT Infrastructure probable) | Référentiel des actifs | CSV | 200 lignes | Snapshot / mise à jour sur changement | Owners et criticités manquants, hostnames dupliqués |
-| `users.csv` | À confirmer (RH / IAM probable) | Référentiel utilisateurs | CSV | 400 lignes | Snapshot / mise à jour sur changement | 5 doublons stricts, structure globalement cohérente |
-
-\* La fréquence est une proposition de travail, pas une information confirmée par les fichiers reçus.
+| `authentication_logs.csv` | À confirmer | Événements d'authentification (AD, VPN, RDP...) | CSV | 4992 lignes | Non documentée | Plusieurs formats de dates, doublons, IP invalides et références manquantes |
+| `edr_alerts.csv` | À confirmer | Alertes remontées par l'outil EDR | CSV | 1929 lignes | Non documentée | Doublons, sévérités non homogènes et alertes non encore traitées par un analyste |
+| `assets.csv` | À confirmer | Référentiel des actifs (postes, serveurs, VM) | CSV | 200 lignes | Non documentée | Owners et criticités manquants, quelques hostnames dupliqués |
+| `users.csv` | À confirmer | Référentiel des utilisateurs | CSV | 400 lignes | Non documentée | Quelques doublons, structure globalement cohérente |
 
 ## Période couverte
-- Authentification : du **2 mars 2026** au **22 mars 2026**.
-- EDR : du **2 mars 2026** au **22 mars 2026**.
-- Historique réellement reçu : environ **21 jours**, ce qui est court pour une future modélisation robuste.
+
+- Authentification : du 2 mars 2026 au 22 mars 2026.
+- EDR : du 2 mars 2026 au 22 mars 2026.
+- Historique reçu : environ 21 jours.
+
+## Réserves communiquées par l'IT
+
+- Les données proviennent d'outils différents.
+- `users.csv` et `assets.csv` ne sont pas garantis à jour.
+- `analyst_decision` n'est renseigné que lorsqu'une alerte a été traitée.
+- Aucune vérification de cohérence entre les fichiers n'avait été réalisée avant leur transmission.
