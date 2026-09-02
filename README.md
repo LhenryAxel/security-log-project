@@ -26,8 +26,3 @@ python -m unittest discover -s tests -v
 - les formats de dates, sévérités et résultats d'authentification sont normalisés ;
 - les références utilisateur / actif inconnues sont conservées mais signalées ;
 - les valeurs manquantes ne sont pas inventées.
-
-## Limite documentaire
-Le sujet mentionne un fichier `README_ETUDIANTS.md`, mais il n'a pas été fourni
-avec les fichiers reçus ici. Les propriétaires exacts des données, les fréquences
-de mise à jour et certaines définitions de champs restent donc à confirmer.
