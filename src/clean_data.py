@@ -83,30 +83,6 @@ def normalize_severity(value):
     return aliases.get(value, value)
 
 
-def normalize_auth_result(value):
-    value = (value or "").strip().upper()
-
-    if value == "SUCCESS":
-        return "SUCCESS"
-
-    if value in {"FAILED", "FAILURE"}:
-        return "FAILURE"
-
-    return value
-
-
-def validate_ip(value):
-    try:
-        return str(ipaddress.ip_address((value or "").strip()))
-    except ValueError:
-        return ""
-
-
-def flags_to_text(flags):
-    """Regroupe les problèmes détectés dans une seule colonne."""
-    return ";".join(sorted(set(flag for flag in flags if flag)))
-
-
 def clean_users(rows):
     rows = deduplicate_exact(rows)
     output = []
@@ -262,6 +238,30 @@ def clean_edr(rows, user_ids, device_ids):
 
     return output
 
+
+
+def normalize_auth_result(value):
+    value = (value or "").strip().upper()
+
+    if value == "SUCCESS":
+        return "SUCCESS"
+
+    if value in {"FAILED", "FAILURE"}:
+        return "FAILURE"
+
+    return value
+
+
+def validate_ip(value):
+    try:
+        return str(ipaddress.ip_address((value or "").strip()))
+    except ValueError:
+        return ""
+
+
+def flags_to_text(flags):
+    """Regroupe les problèmes détectés dans une seule colonne."""
+    return ";".join(sorted(set(flag for flag in flags if flag)))
 
 def consolidate(auth, edr, users, assets):
     """Regroupe les événements AUTH et EDR dans un format commun."""
